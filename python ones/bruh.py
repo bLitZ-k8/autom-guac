@@ -12,8 +12,10 @@ for i in range(n):
     y = int(input())
     points_lst.append((x, y))
 
-for p1 in points_lst:
-    for p2 in points_lst:
+for ind1 in range(len(points_lst)):
+    for ind2 in range(ind1+1, len(points_lst)):
+        p1 = points_lst[ind1]
+        p2 = points_lst[ind2]
         if p1!=p2:
             d = distance(*p1, *p2)
             dist_lst.append(d)
@@ -21,5 +23,5 @@ for p1 in points_lst:
 min_d = min(dist_lst)
 min_d_idx = [i for i,e in enumerate(dist_lst) if e==min_d]
 
-for i in min_d_idx:
-    print(pt_pairs[i][0], pt_pairs[i][1])
+for f in min_d_idx:
+    print(pt_pairs[f][0], pt_pairs[f][1])
